@@ -1,0 +1,40 @@
+ .container{
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    margin: 25px;
+    padding: 1rem;
+    justify-content: space-around;
+    max-width: 100%;
+ }
+ .containerButtons{
+   display: flex;
+   flex-direction: column;
+   justify-content: center;
+   align-items: center;
+   margin: 10px;
+ }
+ .buttons{
+   background-color: #a76262;
+   margin: 5px;
+   width: 300px;
+   height: 30px;
+   border: 0 solid;
+   border-radius: 10px;
+   color: antiquewhite;
+   box-shadow:1px 0px 2px 3px #dfa3a3;
+ }
+ .buttons:hover{
+   cursor: pointer;
+   animation: tresde 0.5s forwards;
+ }
+
+
+ @keyframes tresde{
+   form{
+      box-shadow:1px 0px 2px 3px #dfa3a3;
+   }
+   to{
+      box-shadow:1px 0px 2px 3px rgb(85, 85, 85);
+   }
+ }
