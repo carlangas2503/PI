@@ -33,6 +33,7 @@ function FormPage() {
     const[ errorPesoMin, setErrorPesoMin ] = useState("")
     const[ errorPesoMax, setErrorPesoMax ] = useState("")
     const[ errorAñosDeVida, setErrorAñosDeVida ] = useState("")
+    const[ errorTemp, setErrorTemp ] = useState('')
 
     async function submit(event) {
         event.preventDefault()
@@ -71,7 +72,12 @@ function FormPage() {
     function handleSe(event) {
         setCreateDog({
             ...createDog,
-            Temperamento:[...createDog.Temperamento,event.target.value]        })
+            Temperamento:[...createDog.Temperamento,event.target.value]        
+        })
+        validate_Temperamento({
+            ...createDog,
+            Temperamento:[...createDog.Temperamento,event.target.value]        
+        },setErrorTemp)
     }
     function deleted(ele) {
         setCreateDog({

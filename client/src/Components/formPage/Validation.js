@@ -52,6 +52,9 @@ export const validate_Años_de_vida = (newDog,setErrors)=>{
         else setErrors('')
     }
 }
+export const validtae_Temperamento = (newDog,setErrors)=>{
+    
+}
 
 
 
