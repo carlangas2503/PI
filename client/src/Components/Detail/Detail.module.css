@@ -1,0 +1,25 @@
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    margin: 50px;
+    border: 1px solid #ffc3c3;
+    background-color: #4d1e1e;
+    color: antiquewhite;
+    border-radius: 10px;
+}
+.Imagen{
+    max-width: 550px;
+    max-height: 500px;
+    border-radius: 10px;
+}
+.buton{
+    border: 0 solid;
+    border-radius: 10px;
+    background-color: #792222;
+    cursor: pointer;
+    padding: 20px;
+    margin: 10px;
+    color: antiquewhite;
+}

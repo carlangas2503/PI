@@ -1,9 +1,9 @@
 import { Route, Routes } from 'react-router-dom';
 import './App.css';
-import LandingPage from './components/LandingPage/LandingPage.jsx'
-import HomePages from './components/HomePage/HomePages'
-import Detail from './components/Detail/Detail';
-import FormPage from './components/FormPage/Formpage';
+import LandingPage from './Components/LandingPage/LandingPage.jsx'
+import HomePages from './Components/HomePage/HomePages'
+import Detail from './Components/Detail/Detail';
+import FormPage from './Components/formPage/formPage';
 import axios from 'axios'
 import {  useState } from 'react';
 

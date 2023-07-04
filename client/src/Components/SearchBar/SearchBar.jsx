@@ -10,11 +10,13 @@ function SearchBar({onSearch}) {
     return(
         <div className={style.container}>
             <h3>Busca a tu Amigo!!</h3>
-            <input type="search" onChange={handleChange} value={name}/>
-            <button onClick={()=>{onSearch(name);setName('')}}>Agregar</button>
-            <Link to='/formPage'>
-            <button>CREA TU PROPIO AMIGO!!</button>
-            </Link>
+                <input className={style.barra} type="search" onChange={handleChange} value={name}/>
+                <button className={style.botonSearch} onClick={()=>{onSearch(name);setName('')}}>Agregar</button>
+            <div className={style.contCreate}>
+                <Link to='/formPage'>
+                <button className={style.butonCreate}>CREA TU PROPIO AMIGO!!</button>
+                </Link>  
+            </div>
         </div>
     )
 }

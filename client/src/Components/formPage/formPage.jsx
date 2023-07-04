@@ -9,7 +9,7 @@ import {validate,
     validate_Altura_max,
     validate_Peso_min,
     validate_Peso_max,
-    validate_Años_de_vida} from './Validation.js'
+    validate_Años_de_vida,} from './Validation.js'
 import {Link} from 'react-router-dom'
 
 
@@ -33,7 +33,6 @@ function FormPage() {
     const[ errorPesoMin, setErrorPesoMin ] = useState("")
     const[ errorPesoMax, setErrorPesoMax ] = useState("")
     const[ errorAñosDeVida, setErrorAñosDeVida ] = useState("")
-    const[ errorTemp, setErrorTemp ] = useState('')
 
     async function submit(event) {
         event.preventDefault()
@@ -48,6 +47,7 @@ function FormPage() {
                 Años_de_vida: createDog.Años_de_vida,
                 Temperamento: createDog.Temperamento
             })
+            alert(`el perrito ${createDog.Nombre} fue creado exitosamente`)
             return res.data; 
             
         } catch (error) {
@@ -74,10 +74,6 @@ function FormPage() {
             ...createDog,
             Temperamento:[...createDog.Temperamento,event.target.value]        
         })
-        validate_Temperamento({
-            ...createDog,
-            Temperamento:[...createDog.Temperamento,event.target.value]        
-        },setErrorTemp)
     }
     function deleted(ele) {
         setCreateDog({
@@ -165,7 +161,7 @@ function FormPage() {
                     <span>{errorAñosDeVida}</span>
                 </div>
                 <div>
-                    <select className={style.sucsess} onChange={(event)=>handleSe(event)}>
+                    <select className={style.select} onChange={(event)=>handleSe(event)}>
                         {temper?.map((temp)=>{
                             return(
                                 <option key={temp} name={temp}>
@@ -176,17 +172,17 @@ function FormPage() {
                     </select>
                     <div>
                         {createDog.Temperamento?.map(ele=>{
-                            return(<div>
+                            return(<div className={style.compMap}>
                                <p>{ele}</p>
-                               <button onClick={()=>deleted(ele)}>x</button>
+                               <button className={style.compMapbuton} type="" onClick={()=>deleted(ele)}>x</button>
                             </div>)
                         })}
                     </div>
                 </div>
-                <button type="submit">CREAR</button>
+                <button className={style.boton} type="submit">CREAR</button>
             </form>
             <Link to='/homePage'>
-                <button>VOLVER</button>
+                <button className={style.boton}>VOLVER</button>
             </Link>
         </div>
     )
