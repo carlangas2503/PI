@@ -15,7 +15,7 @@ import {Link} from 'react-router-dom'
 
 function FormPage() {
     const dispatch = useDispatch()
-    const temper = useSelector((state)=>state.temperamentos)
+    const temper = useSelector((state)=>state.temperamentos?.sort())
     const [ createDog, setCreateDog ] = useState({
         Imagen:"",
         Nombre:"",
@@ -73,12 +73,6 @@ function FormPage() {
         setCreateDog({
             ...createDog,
             Temperamento:[...createDog.Temperamento,event.target.value]        
-        })
-    }
-    function deleted(ele) {
-        setCreateDog({
-            ...createDog,
-            Temperamento:createDog.Temperamento.filter(temp=>temp !== ele)
         })
     }
    
@@ -174,7 +168,6 @@ function FormPage() {
                         {createDog.Temperamento?.map(ele=>{
                             return(<div className={style.compMap}>
                                <p>{ele}</p>
-                               <button className={style.compMapbuton} type="" onClick={()=>deleted(ele)}>x</button>
                             </div>)
                         })}
                     </div>

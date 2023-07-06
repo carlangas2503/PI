@@ -4,7 +4,7 @@ async function getId(req,res){
     try {
         const { API_KEY } = process.env
         const id = req.params.id
-        if(id.length < 4){
+        if(id.length < 7){
             const Dogs = await axios('https://api.thedogapi.com/v1/breeds/',{
                 headers: {
                     'x-api-key':API_KEY

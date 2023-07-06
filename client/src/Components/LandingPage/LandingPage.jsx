@@ -8,7 +8,6 @@ function LandingPage(props){
             <h1 className={style.titulo}>Welcome to Henry Dogs</h1> 
             <img src={imagenFond} alt="paul" className={style.imagen} />
             <Link to='/homePage'><button className={style.boton}>START</button></Link>
-            
         </div>
     )
 }

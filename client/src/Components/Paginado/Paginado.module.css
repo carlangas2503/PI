@@ -57,6 +57,7 @@
     height: 30px;
     width: 80px;
     cursor: pointer;
+    margin-left: 10px;
 }
 .boton1:hover{
     animation: sombraBoton1 0.8s forwards;
@@ -76,6 +77,7 @@
     height: 30px;
     width: 80px;
     cursor: pointer;
+    margin-right: 10px;
 }
 .filtro{
     background-color: #a76262;

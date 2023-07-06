@@ -17,10 +17,11 @@ const Paginado = (props)=>{
         )
     })
     const [orden,setOrden] = useState(false)
-    const [nameOrden,setNameOrdne] = useState("")
+    const [nameOrden,setNameOrdne] = useState("descendente")
     return(
         <div>
             <button className={style.boton2} onClick={props.prevHandler}>prev</button>
+            --- {props.currentPage+1} ---
             <button className={style.boton1} onClick={props.nextHandler}>next</button>
 
             <div className={style.container}>
