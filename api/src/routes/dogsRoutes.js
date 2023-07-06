@@ -15,5 +15,3 @@ dogsRoute.post('/',postDogs)
 
 
 module.exports = dogsRoute
-
-

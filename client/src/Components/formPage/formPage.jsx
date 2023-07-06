@@ -70,6 +70,7 @@ function FormPage() {
         validate_Años_de_vida(newDog,setErrorAñosDeVida)
     }
     function handleSe(event) {
+        if(createDog.Temperamento.find(ele=>ele===event.target.value))return;
         setCreateDog({
             ...createDog,
             Temperamento:[...createDog.Temperamento,event.target.value]        
@@ -157,6 +158,7 @@ function FormPage() {
                 <div>
                     <select className={style.select} onChange={(event)=>handleSe(event)}>
                         {temper?.map((temp)=>{
+                            
                             return(
                                 <option key={temp} name={temp}>
                                     {temp}
@@ -166,6 +168,7 @@ function FormPage() {
                     </select>
                     <div>
                         {createDog.Temperamento?.map(ele=>{
+
                             return(<div className={style.compMap}>
                                <p>{ele}</p>
                             </div>)
