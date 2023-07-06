@@ -17,10 +17,10 @@ async function getName(req,res) {
                 },
                 name:dogNameDb.Nombre,
                 height:{
-                    metric:`${dogNameDb.Altura_min} - ${dogNameDb.Altura_max}`
+                    metric:dogNameDb.Altura_min===dogNameDb.Altura_max?dogNameDb.Altura_max:`${dogNameDb.Altura_min} - ${dogNameDb.Altura_max}`
                 },
                 weight:{
-                    metric:`${dogNameDb.Peso_min} - ${dogNameDb.Peso_max}`
+                    metric:dogNameDb.Peso_min===dogNameDb.Peso_max?dogNameDb.Altura_max:`${dogNameDb.Peso_min} - ${dogNameDb.Peso_max}`
                 },
                 temperament:dogNameDb.temperaments.map(ele=>ele.Nombre).join(', '),
                 life_span:`${dogNameDb.Años_de_vida} years`,

@@ -9,14 +9,14 @@ export const validate = (valiDog,setErrors)=>{
 export const validate_Nombres= (newDog,setErrors)=>{
     if(!newDog.Nombre) setErrors("Dinos el nombre de tu perrito!!")
     else{
-        if(newDog.Nombre.length > 15) setErrors("debe tener menos de 15 caracteres")
+        if(newDog.Nombre.length > 20) setErrors("debe tener menos de 20 caracteres")
         else setErrors("")
     }
 }
 export const validate_Altura_min = (newDog,setErrors)=>{
     if(!newDog.Altura_min) setErrors("ponle una altura minima")
     else{
-        if(newDog.Altura_min < 15) setErrors("debe medir como minimo 15cm")
+        if(newDog.Altura_min < 20) setErrors("debe medir como minimo 20cm")
         else setErrors("")
     }
 }
@@ -32,7 +32,7 @@ export const validate_Altura_max = (newDog,setErrors)=>{
 export const validate_Peso_min = (newDog,setErrors)=>{
     if(!newDog.Peso_min) setErrors('ponle un peso minimo')
     else{
-        if(newDog.Peso_min < 3) setErrors('debe pesar minimo 3kg')
+        if(newDog.Peso_min < 8) setErrors('debe pesar minimo 8kg')
         else setErrors('')
     }
 }
@@ -48,7 +48,7 @@ export const validate_Peso_max = (newDog,setErrors)=>{
 export const validate_Años_de_vida = (newDog,setErrors)=>{
     if(!newDog.Años_de_vida) setErrors('ponle años de vida que pueda vivir')
     else{
-        if(Number(newDog.Años_de_vida) < 7 ) setErrors('debe ser poder vivir más de 7 años')
+        if(Number(newDog.Años_de_vida) < 10 ) setErrors('debe ser poder vivir más de 10 años')
         else setErrors('')
     }
 }

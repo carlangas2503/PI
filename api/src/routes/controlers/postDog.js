@@ -1,11 +1,12 @@
 const { dog, temperament} = require('../../db')
-const getTemperaments = require('./getTemperaments')
 
 
 async function postDogs(req,res) {
     try {
         const {Imagen,Nombre,Altura_min,Altura_max,Peso_min,Peso_max,Años_de_vida,Desde_DB,Temperamento} = req.body;
-        if(Imagen && Nombre && Altura_min && Altura_max && Peso_min && Peso_max && Años_de_vida && Temperamento){
+        if(Imagen && Nombre && Altura_min && Altura_max && Peso_min && Peso_max && Años_de_vida && Temperamento.length){
+            if(Altura_min > Altura_max) return res.status(400).send("La altura minima no puede ser mayor que la maxima")
+            if(Peso_min > Peso_max)return res.status(400).send('El peso minimo no puede ser mayor que la maximo')
            const newDog = await dog.create({
             Imagen,
             Nombre,

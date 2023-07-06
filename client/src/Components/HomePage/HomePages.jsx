@@ -12,6 +12,15 @@ function HomePage({onSearch,characters,onClose,orderByName,deDb}){
     const [items,setItems] = useState([].splice(0,items_per_page))
     const [currentPage,setCurrentPage] = useState(0)
 
+    const ordenPaginado = (items,getter,order)=>{
+        items.sort((a, b)=>{
+        const first = getter(a);
+        const second = getter(b);
+        const compare = first.localeCompare(second)
+        return order === true ? compare: -compare
+    })
+    return setItems(items)
+}
     
     useEffect(()=>{
         async function axiosData(){
@@ -56,7 +65,7 @@ function HomePage({onSearch,characters,onClose,orderByName,deDb}){
             <SearchBar onSearch={onSearch}/>
             {characters.length > 0?
             <Cards characters={characters} onClose={onClose} orderByName={orderByName} deDb={deDb}/>:
-            <Paginado nextHandler={nextHandler} prevHandler = {prevHandler} items={items} currentPage={currentPage}/>}
+            <Paginado nextHandler={nextHandler} prevHandler = {prevHandler} items={items} currentPage={currentPage} ordenPaginado={ordenPaginado}/>}
         </div>
     )
 }

@@ -15,7 +15,6 @@ function Detail() {
     },[dispatch,id])
     return(
         <div className={style.container}>
-            <h2>ID: {character?character.id:null}</h2>
             <img className={style.Imagen} src={character?character.image:null} alt={character?character.name:null} />
             <h3>{character?character.name:null}</h3>
             <p>Altura: {character?character.height:null}cm</p>

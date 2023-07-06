@@ -8,8 +8,11 @@
     background-color: #4d1e1e;
     color: antiquewhite;
     border-radius: 10px;
+    margin-left: 150px;
+    margin-right: 150px;
 }
 .Imagen{
+    margin: 20px;
     max-width: 550px;
     max-height: 500px;
     border-radius: 10px;

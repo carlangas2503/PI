@@ -1,3 +1,4 @@
+import { useState } from "react"
 import style from "./Paginado.module.css"
 import { Link } from "react-router-dom"
 
@@ -15,6 +16,8 @@ const Paginado = (props)=>{
             </div>
         )
     })
+    const [orden,setOrden] = useState(false)
+    const [nameOrden,setNameOrdne] = useState("")
     return(
         <div>
             <button className={style.boton2} onClick={props.prevHandler}>prev</button>
@@ -23,6 +26,7 @@ const Paginado = (props)=>{
             <div className={style.container}>
             {items}
             </div>
+            <button className={style.filtro} onClick={()=>{props.ordenPaginado(props.items,char=>char.name,orden);setOrden(!orden);!orden?setNameOrdne('ascendente'):setNameOrdne('descendente')}}>Ordenar por {nameOrden}</button>
             
         </div>
     )    

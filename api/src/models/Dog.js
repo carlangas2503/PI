@@ -16,7 +16,7 @@ module.exports = (sequelize) => {
       allowNull:true,
     },
     Nombre: {
-      type: DataTypes.STRING(15),
+      type: DataTypes.STRING(20),
       allowNull: false,
       unique: true
     },
@@ -24,24 +24,36 @@ module.exports = (sequelize) => {
       type: DataTypes.INTEGER,
       allowNull:false,
       validate:{
-        min:15,
+        min:20,
       }
     },
     Altura_max: {
       type: DataTypes.INTEGER,
       allowNull:false,
+      validate:{
+        min:20,
+      }
     },
     Peso_min: {
       type: DataTypes.INTEGER,
       allowNull:false,
+      validate:{
+        min:8,
+      }
     },
     Peso_max: {
       type: DataTypes.INTEGER,
       allowNull:false,
+      validate:{
+        min:8,
+      }
     },
     Años_de_vida: {
       type: DataTypes.INTEGER,
       allowNull:false,
+      validate:{
+        min:10,
+      }
     },
     Desde_DB :{
       type: DataTypes.BOOLEAN,

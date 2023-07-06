@@ -34,7 +34,7 @@ function App() {
         const first = getter(a);
         const second = getter(b);
         const compare = first.localeCompare(second)
-        return order === 'asc' ? compare: -compare
+        return order === true ? compare: -compare
     })
     return setCharacters(characters)
 }

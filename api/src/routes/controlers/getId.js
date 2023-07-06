@@ -32,8 +32,8 @@ async function getId(req,res){
                 id:dogDb.ID,
                 image:dogDb.Imagen,
                 name:dogDb.Nombre,
-                height:`${dogDb.Altura_min} - ${dogDb.Altura_max}`,
-                weight:`${dogDb.Peso_min} - ${dogDb.Peso_max}`,
+                height:dogDb.Altura_min===dogDb.Altura_max?dogDb.Altura_max:`${dogDb.Altura_min} - ${dogDb.Altura_max}`,
+                weight:dogDb.Peso_min===dogDb.Peso_max?dogDb.Peso_max:`${dogDb.Peso_min} - ${dogDb.Peso_max}`,
                 life_span:`${dogDb.Años_de_vida} years`,
                 temperament:dogDb.temperaments.map(ele=>ele.Nombre).join(', ')
             })
