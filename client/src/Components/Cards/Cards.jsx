@@ -1,13 +1,19 @@
 import { useState } from "react";
 import Card from "../Card/Card";
 import style from "./Cards.module.css"
-function Cards({characters,onClose,orderByName,deDb}) {
-    const [ ordenado, setOrdenado ] = useState(false)
-    const [ render, setRender ] = useState("descendente")
+function Cards({characters,onClose,orderByName,deDb,orderByPeso}) {
+    const [ ordenado, setOrdenado ] = useState({
+        nombre:false,
+        peso:false,
+    })
+    const [ render, setRender ] = useState({
+        nombre:"descendente",
+        peso:"descendente"
+    })
     return(
         <div>
             <div className={style.container}>
-            {characters?.map(({id,weight,name,temperament,image})=>
+            {characters?.map(({id,weight,name,temperament,image,})=>
             <Card
             max = {characters.length}
             id = {id}
@@ -21,9 +27,9 @@ function Cards({characters,onClose,orderByName,deDb}) {
             <div className={style.containerButtons}>
                 <button className={style.buttons}
                 onClick={()=>{orderByName(characters,
-                char=>char.name,ordenado);
-                setOrdenado(!ordenado);
-                ordenado?setRender("descendente"):setRender("ascendente")}}>Ordenar por Nombre {render}</button>
+                char=>char.name,ordenado.nombre);
+                setOrdenado({...ordenado,nombre:!ordenado.nombre});
+                ordenado.nombre?setRender({...render,nombre:"descendente"}):setRender({...render,nombre:"ascendente"})}}>Ordenar por Nombre {render.nombre}</button>
                 <button className={style.buttons} onClick={()=>deDb('yes')}>Desde la base de datos</button>
                 <button className={style.buttons} onClick={()=>deDb('no')}>Desde la Api</button>
             </div>

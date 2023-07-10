@@ -17,7 +17,8 @@ function App() {
     try {
       const res = await axios(`http://localhost:3001/dogsRoutes/name?name=${name}`)
       if(res.data && !characters.find(ele => ele.name.toLowerCase() === name.toLowerCase())){
-        return setCharacters([...characters,res.data])
+        setCharacters([...characters,res.data])
+        return;
       }
       if(characters.find(ele => ele.name.toLowerCase() === name.toLowerCase())){
         return alert('este perrito está repetido')
@@ -26,6 +27,7 @@ function App() {
       return alert('no hay perritos con este nombre :c')
     }
   }
+  
   const onClose = (name)=>{
     setCharacters(characters.filter((char)=>char.name !== name))
   }
@@ -44,11 +46,12 @@ const deDb = (getter)=>{
   
   
 }
+
   return (
     <div className="App">
       <Routes>
         <Route path='/' element={<LandingPage />}/>
-        <Route path='/homePage' element={<HomePages onSearch={onSearch} characters={characters} onClose={onClose} orderByName={orderByName} deDb={deDb}/>}/>
+        <Route path='/homePage' element={<HomePages onSearch={onSearch} characters={characters} onClose={onClose} orderByName={orderByName} deDb={deDb} />}/>
         <Route path='/detail/:id' element = {<Detail/>}/>
         <Route path='/formPage' element={<FormPage/>}/>
       </Routes>

@@ -92,7 +92,30 @@
 .filtro:hover{
     cursor: pointer;
     animation: tresde 0.5s forwards;
-  }
+}
+.contFilters{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+}
+.options{
+    background-color: #a76262;
+    color: antiquewhite;
+}
+.select{
+    border: 0 solid;
+    padding: 7px 40px 7px 40px;
+    border-radius: 10px;
+    background-color: #a76262;
+    color: antiquewhite;
+    margin-bottom: 50px;
+}
+.select:hover{
+    cursor: pointer;
+    animation: tresde 0.5s forwards;
+}
 @keyframes bordeRedondo{
     from{
         border-radius:10px;

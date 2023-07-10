@@ -1,18 +1,9 @@
-const axios = require('axios')
 const { dog , temperament} = require('../../db')
-async function getAll(req,res) {
+
+async function onlyDb(req,res) {
+    const dogsDb = await dog.findAll({include: temperament})
+    const arr = []
     try {
-        const dogsDb = await dog.findAll({include: temperament})
-        const arr = []
-        const {API_KEY} = process.env
-        const apiResponse = await axios('https://api.thedogapi.com/v1/breeds/',{
-            headers: {
-                'x-api-key': API_KEY
-            }
-        })
-        apiResponse.data.map((ele)=>{
-            arr.push(ele)
-        })
         if(dogsDb){
             dogsDb.map(({ID,Nombre,Altura_max,Altura_min,Peso_max,Peso_min,Años_de_vida,temperaments,Imagen})=>{
                 const guardar = {}
@@ -28,12 +19,12 @@ async function getAll(req,res) {
                 guardar.image.url = Imagen
                 arr.push(guardar)
             })
+            return res.status(200).json(arr)
         }
-        
-        return res.status(200).json(arr)
+        return res.status(400).json('No hay perritos guardados')
     } catch (error) {
         res.status(400).send(error.message)
     }
+    
 }
-
-module.exports = getAll;
+module.exports = onlyDb

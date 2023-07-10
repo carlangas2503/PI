@@ -51,11 +51,14 @@ function FormPage() {
             return res.data; 
             
         } catch (error) {
-            return alert('algo salió mal');
+            return alert(error.response.data);
         }
         
         
     }
+    //filtrado por temperamento
+    //ordenamiento peso
+    //ordenamiento altura
 
     function handle(event){
         const newDog = {...createDog}
@@ -81,6 +84,9 @@ function FormPage() {
         dispatch(getTemperamentos())
     },[dispatch])
 
+    function deletItems(ele){
+        setCreateDog({...createDog,Temperamento:createDog.Temperamento.filter(temp=>temp !== ele)})
+    }
     return(
         <div className={style.container}>
             <h1>Crea a tu perrito en este apartado!!</h1>
@@ -168,9 +174,9 @@ function FormPage() {
                     </select>
                     <div>
                         {createDog.Temperamento?.map(ele=>{
-
                             return(<div className={style.compMap}>
                                <p>{ele}</p>
+                               <span onClick={()=>deletItems(ele)}>x</span>
                             </div>)
                         })}
                     </div>

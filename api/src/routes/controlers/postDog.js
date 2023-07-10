@@ -22,7 +22,7 @@ async function postDogs(req,res) {
                 if(!findTemp) return 'hubo un error'
                 newDog.addTemperament(findTemp)
             })
-            return res.send(newDog)
+            return res.status(201).send(newDog)
         } else {
             res.status(404).send('Hubo un fallo con los datos')
         }
